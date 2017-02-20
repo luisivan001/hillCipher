@@ -195,22 +195,7 @@ int main(int argc, char *argv[])
 					
 					
 					
-				// e is just a variable
-				// ecount goes as far as the end of the key matrix
-				// maybe the problem is a compiling error
-				/* such as multiplication causing weird char
-				if(ecount!=(key*key+1))
-				{
-					
-					if(count==14)
-					{
-						printf("\n*** outside ***\n");
-						printf("\ncount: %d\n\ne: %d \n",count,e);
-						// printf("ecount: %d \n", ecount);
-						printf("ptext: %d keyBuffer %d\n",ptextBuffer[k],keyBuffer[ecount]);
-
-					}
-				*/	
+			
 					e=(int)e+((int)ptextBuffer[k++]-97)*(keyBuffer[ecount]);
 				
 
@@ -228,16 +213,7 @@ int main(int argc, char *argv[])
 			//mod26
 			etext[row+count]=e%26+'a';
 			
-		/*
-			if(count==14&&row==1)
-			{
-				printf("\ncount: %d\n\ne: %d \n",count,e);
-				printf("etext: %d\n",etext[row+count]);
-				printf("ptext: %d keyBuffer %d\n",ptextBuffer[k],keyBuffer[ecount]);
-				printf("\necount: %d k: %d \n\n",ecount,k);
-				
-			}
-		*/
+	
 		
 			e=0;
 		}
