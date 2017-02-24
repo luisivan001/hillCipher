@@ -102,7 +102,9 @@ int main(int argc, char *argv[])
     }	
 		
 	index=i;
-
+	
+	/*
+	
 	// this is too double check the last char in the buffer
 	// a non letter could have slipped in
 	if (temp<97||temp>123)
@@ -112,7 +114,13 @@ int main(int argc, char *argv[])
 		index++;
 	}
 	
-	
+	*/
+	// *** double check with the 2 key ***
+	// *** at the 3 key it does not insert the leading x ***
+	// *** what happens at the 4 key ***
+	// if(index%key!=0)
+	// index++;
+	// text[index]='x';
 	// we have to make sure that the index is a factor
 	// of key[0] if not we need to padd with x's ptextBuffer
 	// index is how many letters taken in
@@ -124,6 +132,7 @@ int main(int argc, char *argv[])
 		index++;
 		
 	}
+	
 
 	// creating the encrypted text buffer
 	etext=malloc(sizeof(char)*index);
@@ -170,7 +179,7 @@ int main(int argc, char *argv[])
 			
 	}
 	
-	printf("\nKey matrix:\n");
+	printf("\nKey matrix:\n\n");
 	
 	for(i=1;i<size;i++)
 	{
@@ -180,17 +189,21 @@ int main(int argc, char *argv[])
 				printf("\n");
 	}
 	
+	printf("\n");
+	printf("\nPlaintext:\n\n");
+	
 	// this one prints out the text
 	for (i=0;i<index;i++)
 	{
 		
 		printf("%c", ptextBuffer[i]);
-		if(i%40==39)
+		if(i%80==79)
 			printf("\n");
 	}
 	
 	printf("\n\n");
 	
+	printf("\nCiphertext:\n\n");
 	
 	
 	// this one prints out encrypted text
@@ -198,39 +211,13 @@ int main(int argc, char *argv[])
 	{
 		
 		printf("%c", etext[i]);
-		if(i%40==39)
+		if(i%80==79)
 			printf("\n");
 	}
 	
 	printf("\n\n");
 	
-	
-	
-	// this is the ptext in decimal
-	printf("this is the ptext in decimal\n\n");
-	for (i=0;i<index;i++)
-	{
-		
-		printf("%d ", ptextBuffer[i]-'a');
-		if(i%13==12)
-			printf("\n");
-	}
-	
-	printf("\n\n");
-	
-	/**/
-	// this is the number representation of encrypted text
-	printf("this is the etext in decimal\n\n");
-	for (i=0;i<index;i++)
-	{
-		
-		printf("%d ", etext[i]);
-		if(i%13==12)
-			printf("\n");
-	}
-	
-	printf("\n\n");
-	
+
 	
 	
 return 0; 

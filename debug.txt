@@ -44,3 +44,28 @@
 				
 			}
 		*/
+		
+		
+			
+	// this is the ptext in decimal
+	printf("this is the ptext in decimal\n\n");
+	for (i=0;i<index;i++)
+	{
+		
+		printf("%d ", ptextBuffer[i]-'a');
+		if(i%13==12)
+			printf("\n");
+	}
+	
+	printf("\n\n");
+	
+	/**/
+	// this is the number representation of encrypted text
+	printf("this is the etext in decimal\n\n");
+	for (i=0;i<index;i++)
+	{
+		
+		printf("%d ", etext[i]);
+		if(i%13==12)
+			printf("\n");
+	}
