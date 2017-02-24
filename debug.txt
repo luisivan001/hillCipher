@@ -1,0 +1,46 @@
+	if(DEBUG>20)
+    {
+	
+		// these prints let me know how large of a key 
+		// that we are using
+		printf("\n*** the size: %d ***\n\n", size);
+		
+		// this one tells me the limit
+		printf("size: %d\ncapacity: %d\n\n", size, capacity);
+    
+    	printf("\n*** the size: %d ***\n\n", size);
+	
+		printf("size: %d\ncapacity: %d\n\n", size, capacity);
+    	
+   		if(DEBUG>20)
+    	{
+	
+   			for(i=0; i<capacity; i++ )
+			{
+				printf("\n*** double check: %d ***\n", keyBuffer[i]);
+			}
+    	}
+    
+    }
+    
+    
+    
+    
+    	
+	if(DEBUG>10)
+	{
+		printf("\n*** the index: %d ***\n\n", index);
+		printf("\n*** the index: %d ***\n\n", index%key);
+	}
+	
+		
+		/*
+			if(count==14&&row==1)
+			{
+				printf("\ncount: %d\n\ne: %d \n",count,e);
+				printf("etext: %d\n",etext[row+count]);
+				printf("ptext: %d keyBuffer %d\n",ptextBuffer[k],keyBuffer[ecount]);
+				printf("\necount: %d k: %d \n\n",ecount,k);
+				
+			}
+		*/

@@ -68,11 +68,6 @@ int main(int argc, char *argv[])
 	{ 
 		
 		key=keyBuffer[0];
-
-		printf("%d ", keyBuffer[size]);
-		
-		if(size%key==0)
-			printf("\n");
 			
 		size++;
 	}
@@ -83,30 +78,7 @@ int main(int argc, char *argv[])
     }
 	
 	
-	if(DEBUG>20)
-    {
-	
-		// these prints let me know how large of a key 
-		// that we are using
-		printf("\n*** the size: %d ***\n\n", size);
-		
-		// this one tells me the limit
-		printf("size: %d\ncapacity: %d\n\n", size, capacity);
-    
-    	printf("\n*** the size: %d ***\n\n", size);
-	
-		printf("size: %d\ncapacity: %d\n\n", size, capacity);
-    	
-   		if(DEBUG>20)
-    	{
-	
-   			for(i=0; i<capacity; i++ )
-			{
-				printf("\n*** double check: %d ***\n", keyBuffer[i]);
-			}
-    	}
-    
-    }
+
     
     i=0;
     
@@ -152,14 +124,7 @@ int main(int argc, char *argv[])
 		index++;
 		
 	}
-	
-	if(DEBUG>10)
-	{
-		printf("\n*** the index: %d ***\n\n", index);
-		printf("\n*** the index: %d ***\n\n", index%key);
-	}
-	
-	
+
 	// creating the encrypted text buffer
 	etext=malloc(sizeof(char)*index);
 	
@@ -167,14 +132,7 @@ int main(int argc, char *argv[])
 	
 	count=0;
 	ecount=1;
-	
-	if(DEBUG>10)
-	{
-		
-		printf("\n*** the key: %d ***\n\n", key);
-	}
-	
-	
+
 	// this is supposed to do matrix multiplication Hill style
 	while(count<index)
 	{
@@ -192,62 +150,35 @@ int main(int argc, char *argv[])
 					ecount=1;
 					
 					
-					
-				// e is just a variable
-				// ecount goes as far as the end of the key matrix
-				// maybe the problem is a compiling error
-				/* such as multiplication causing weird char
-				if(ecount!=(key*key+1))
-				{
-					
-					if(count==14)
-					{
-						printf("\n*** outside ***\n");
-						printf("\ncount: %d\n\ne: %d \n",count,e);
-						// printf("ecount: %d \n", ecount);
-						printf("ptext: %d keyBuffer %d\n",ptextBuffer[k],keyBuffer[ecount]);
-
-					}
-				*/	
 					e=(int)e+((int)ptextBuffer[k++]-97)*(keyBuffer[ecount]);
-				
-
-				
-				
+			
 				ecount++;
 				
 				if(ecount==(key*key+1))
 					ecount=1;
-					
-				
+						
 			}
-			
-			
+				
 			//mod26
 			etext[row+count]=e%26+'a';
-			
-		/*
-			if(count==14&&row==1)
-			{
-				printf("\ncount: %d\n\ne: %d \n",count,e);
-				printf("etext: %d\n",etext[row+count]);
-				printf("ptext: %d keyBuffer %d\n",ptextBuffer[k],keyBuffer[ecount]);
-				printf("\necount: %d k: %d \n\n",ecount,k);
-				
-			}
-		*/
 		
 			e=0;
 		}
 		ecount=1;
 		
-		
 		count=key+count;
-		
-		
+			
 	}
 	
+	printf("\nKey matrix:\n");
 	
+	for(i=1;i<size;i++)
+	{
+		printf("%d ", keyBuffer[i]);
+		
+			if(i%key==0)
+				printf("\n");
+	}
 	
 	// this one prints out the text
 	for (i=0;i<index;i++)
